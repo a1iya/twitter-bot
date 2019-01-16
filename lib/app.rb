@@ -24,7 +24,6 @@ def hello_world(client_def)
 	end
 end	
 
-hello_world(mon_client)
 
 def likes
    login_twitter.search("#bonjour_monde", result_type: "recent").take(15).collect do |i|
@@ -35,6 +34,8 @@ end
 
 def follow
    login_twitter.search("#bonjour_monde", result_type: "recent").take(5).collect do |i|
-   login_twitter.follow(i)
+   login_twitter.follow(i.id)
 end
 end
+
+follow
